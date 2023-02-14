@@ -9,7 +9,9 @@ public class Rover {
     private CardinalCompassPoint direction;
     private Plateau plateau;
 
-    public Rover(int x, int y, CardinalCompassPoint direction, Plateau plateau) {
+    private String name;
+
+    public Rover(int x, int y, CardinalCompassPoint direction, Plateau plateau, String name) {
         this.x = x;
         this.y = y;
         this.direction = direction;
@@ -18,6 +20,7 @@ public class Rover {
             throw new IllegalArgumentException("Position already occupied: " + x + " " + y);
         }
         this.plateau.setPosition(this);
+        this.name = name;
     }
 
     public int getX() {
@@ -30,6 +33,10 @@ public class Rover {
 
     public CardinalCompassPoint getDirection() {
         return direction;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Rover turnLeft(){
@@ -103,6 +110,12 @@ public class Rover {
 
     @Override
     public String toString() {
+
+        return name + " (" + x + "," + y + "," + direction.toChar() + ")";
+
+    }
+
+    public String getPosition() {
 
         return x + " " + y + " " + direction.toChar();
 

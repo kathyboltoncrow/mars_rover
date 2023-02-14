@@ -52,21 +52,27 @@ public class UserInterface {
     private void addRover(Plateau plateau){
         Rover rover;
 
-        char direction = promptForChar("What direction is the Rover facing (NSEW)?", "NSEW");
+        String name = "";
+        while (name.length() < 1) {
+            System.out.println("What is the name of the Rover?");
+            name = scan.nextLine();
+        }
+
+        char direction = promptForChar(String.format("What direction is Rover[%s] facing (NSEW)?", name), "NSEW");
         CardinalCompassPoint compassPoint = CardinalCompassPoint.fromChar(direction);
 
         boolean isOccupied = true;
         int x = 0,y = 0;
         while(isOccupied){
-            x = promptForInt("What is the Rover's x coordinate?", 0, plateau.getWidth() -1);
-            y = promptForInt("What is the Rover's y coordinate?", 0, plateau.getHeight() -1);
+            x = promptForInt(String.format("What is Rover[%s]'s x coordinate?", name), 0, plateau.getWidth() -1);
+            y = promptForInt(String.format("What is Rover[%s]'s y coordinate?", name), 0, plateau.getHeight() -1);
             isOccupied = plateau.isOccupied(x,y);
             if (isOccupied){
                 System.out.println("Position is already occupied");
             }
         }
 
-        rover = new Rover(x, y, compassPoint, plateau);
+        rover = new Rover(x, y, compassPoint, plateau, name);
 
         System.out.println("Please enter the commands (LRM)");
         String inputLine = scan.nextLine();
@@ -81,9 +87,10 @@ public class UserInterface {
 
         }
         if(commands.length() > 0){
-            System.out.println("Sending these commands to rover: " + commands.toString());
+
+            System.out.println(String.format("Sending these commands to rover[%s] : %s", name, commands.toString()));
         }else{
-            System.out.println("No valid commands to send to rover");
+            System.out.println(String.format("No valid commands to send to rover [%s]", name));
         }
         if(junk.length() >0) {
             System.out.println("Ignoring these invalid commands: " + junk.toString());
@@ -100,7 +107,7 @@ public class UserInterface {
             }
         }
 
-        System.out.println("Rover is in position " + rover.toString());
+        System.out.println(String.format("Rover [%s] is in position %s", name, rover.getPosition()));
 
     }
 
