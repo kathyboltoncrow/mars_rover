@@ -3,6 +3,7 @@ package com.techreturners;
 import com.techreturners.enums.CardinalCompassPoint;
 
 public class Rover {
+
     private int x;
     private int y;
     private CardinalCompassPoint direction;
@@ -13,8 +14,10 @@ public class Rover {
         this.y = y;
         this.direction = direction;
         this.plateau = plateau;
+        if(plateau.isOccupied(x, y)) {
+            throw new IllegalArgumentException("Position already occupied: " + x + " " + y);
+        }
         this.plateau.setPosition(this);
-
     }
 
     public int getX() {

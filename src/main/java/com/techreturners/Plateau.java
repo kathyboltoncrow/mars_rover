@@ -27,6 +27,7 @@ public class Plateau {
         int x = rover.getX();
         int y = rover.getY();
         char direction = rover.getDirection().toChar();
+
         grid[x][y] = direction;
 
     }
