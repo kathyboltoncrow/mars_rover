@@ -47,7 +47,5 @@ public class Plateau {
         return isOccupied;
     }
 
-
-
 }
 

@@ -4,7 +4,7 @@ import com.techreturners.enums.CardinalCompassPoint;
 
 import java.util.Scanner;
 
-public class UserInterface {
+public class ConsoleController {
     Scanner scan = new Scanner(System.in);
 
     private int promptForInt(String prompt, int min, int max) {
@@ -111,7 +111,6 @@ public class UserInterface {
 
     }
 
-
     private void getUserInput(){
         System.out.println("Hello!!");
         int row = promptForInt("What is the width of the plateau?", 0 , Integer.MAX_VALUE);
@@ -122,7 +121,7 @@ public class UserInterface {
         scan.close();
     }
     public static void main(String[] args) {
-        UserInterface ui = new UserInterface();
+        ConsoleController ui = new ConsoleController();
         ui.getUserInput();
     }
 }

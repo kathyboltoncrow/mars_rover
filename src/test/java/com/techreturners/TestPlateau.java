@@ -1,7 +1,8 @@
 package com.techreturners;
 
 import com.techreturners.enums.CardinalCompassPoint;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
     public class TestPlateau {
@@ -88,6 +89,5 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
             assertEquals(plateau.getCell(2,1), 'W');
 
         }
-
 
 }
