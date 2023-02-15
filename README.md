@@ -5,8 +5,8 @@
 > Translate the commands and show the result position and direction of the Rover.
 ## Table of contents
 * [General info](#general-info)
-* [How to build the project](#how to build the project)
-* [How to run the project](#how to run the project)
+* [How to build the project](#how-to-build-the-project)
+* [How to run the project](#how-to-run-the-project)
 * [UML diagram](#uml-diagram)
 * [Room for improvement](#room-for-improvement)
 ## General info
